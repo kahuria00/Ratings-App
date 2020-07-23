@@ -1,24 +1,58 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
+Simple react-rails CRUD app for rating matatus  **(working progress)**
 
 * System dependencies
 
-* Configuration
+`install yarn`
 
-* Database creation
+`install nodejs`
 
-* Database initialization
+`yarn add axios`
 
-* How to run the test suite
+`yarn add styled-components`
 
-* Services (job queues, cache servers, search engines, etc.)
+* Features of this app include:
 
-* Deployment instructions
+`Ruby version: 2.5.8p224 (2020-03-31 revision 67882) [i386-mingw32]`
 
-* ...
+`Rails version: 6.0.3.2`
+
+`Database: sqlite`
+
+* Running it locally
+
+`run bundle exec rails db:prepare`
+
+`navigate to http://localhost:3000`
+
+* Testing API enpoints on Postman /testing frontend
+
+```
+           Prefix Verb            URI Pattern                      Controller#Action
+
+               root GET    /                                     pages#index
+               
+    api_v1_matatus  GET    /api/v1/matatus(.:format)            api/v1/matatuss#index
+    
+                    POST   /api/v1/matatus(.:format)            api/v1/matatus#create
+ 
+    new_api_v1_matatu  GET    /api/v1/matatus/new(.:format)        api/v1/matatus#new`
+ 
+    edit_api_v1_matatu  GET    /api/v1/matatus/:slug/edit(.:format) api/v1/matatus#edit`
+
+    api_v1_matatu  GET    /api/v1/matatus/:slug(.:format)      api/v1/matatus#show
+     
+                    PATCH  /api/v1/matatus/:slug(.:format)      api/v1/matatus#update
+                    
+                    PUT    /api/v1/matatus:slug(.:format)       api/v1/matatus#update
+                    
+                    DELETE /api/v1/matatus/:slug(.:format)      api/v1/matatuss#destroy
+                    
+     api_v1_reviews POST   /api/v1/reviews(.:format)            api/v1/reviews#create
+     
+      api_v1_review DELETE /api/v1/reviews/:id(.:format)        api/v1/reviews#destroy
+      
+                    GET    /*path(.:format)                     pages#index
+                    
+```
