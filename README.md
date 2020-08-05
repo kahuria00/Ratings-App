@@ -14,11 +14,11 @@ Simple react-rails CRUD app for rating matatus  **(working progress)**
 
 * Features of this app include:
 
-`Ruby version: 2.5.8p224 (2020-03-31 revision 67882) [i386-mingw32]`
+`Ruby version: 2.5.8`
 
 `Rails version: 6.0.3.2`
 
-`Database: sqlite`
+`Database: sqlite 1.4`
 
 * Running it locally
 
