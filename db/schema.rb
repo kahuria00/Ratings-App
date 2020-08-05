@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_21_195725) do
+ActiveRecord::Schema.define(version: 2020_08_05_204641) do
 
   create_table "matatus", force: :cascade do |t|
     t.string "name"
