@@ -8,7 +8,7 @@ const App = () =>{
     return(
         <Switch>
             <Route exact path='/' component={Matatus} />
-            <Route exact path='/matatu/:slug' component={Matatu} />
+            <Route exact path='/api/v1/matatu/:slug' component={Matatu} />
         </Switch>
     ) 
 }

@@ -59,7 +59,7 @@ const Matatu = (props) => {
 
             <LinkWrapper>
                 
-                <Link to={`/matatus/${props.attributes.slug}`}>View Matatu </Link>
+                <Link to={`api/v1/matatus/${props.attributes.slug}`}>View Matatu </Link>
 
             </LinkWrapper>
 
