@@ -3,7 +3,7 @@ import axios from 'axios'
 import Header from './Header'
 import styled from 'styled-components'
 import ReviewForm from './ReviewForm'
-import { object } from 'prop-types'
+
 
 const Wrapper= styled.div`
   margin-left:auto;
