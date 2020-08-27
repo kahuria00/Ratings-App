@@ -2,9 +2,9 @@ class Matatu < ApplicationRecord
     has_many  :reviews
     
     before_create  :slugify
-
+    
     def slugify
-        self.slug=name.parameterize
+        self.slug=self.name.parameterize
     end
 
     def avg_score
