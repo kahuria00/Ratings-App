@@ -124,7 +124,7 @@ const ReviewForm = (props) => {
                 <Field>
                     <Ratingcontainer>
                         <RatingcontainerTitle>{props.attributes.name}</RatingcontainerTitle>
-                       Star ratings
+                       Star ratings <i className="fas fa-star"></i>
                    </Ratingcontainer>
                 </Field>
                 <SubmitBtn type='submit'> Submit your review</SubmitBtn>

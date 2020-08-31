@@ -7,8 +7,9 @@ import Matatu from './Matatu/Matatu'
 
 const App = () =>{
   return(
-    <Switch>	      
-    <Route exact path='/' component={Matatus} />
+    <Switch>
+    <Route exact path='/' />	      
+    <Route exact path='/home' component={Matatus} />
     <Route exact path='/api/v1/matatus/:slug' component={Matatu} />
     </Switch>
   ) 	     
