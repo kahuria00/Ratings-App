@@ -32,9 +32,6 @@ Simple react-rails CRUD app for rating matatus  **(working progress)**
            Prefix Verb            URI Pattern                      Controller#Action
 
              root  GET           /                                     pages#index
-             login  POST         /login(.:format)                      sessions#create
-             logout  DELETE      /logout(.:format)                     sessions#destroy
-             logged_in GET      /logged_in(.:format)                   sessions#is_logged_in?
                
     api_v1_matatus  GET    /api/v1/matatus(.:format)            api/v1/matatuss#index
     
@@ -55,9 +52,6 @@ Simple react-rails CRUD app for rating matatus  **(working progress)**
      api_v1_reviews POST   /api/v1/reviews(.:format)            api/v1/reviews#create
      
       api_v1_review DELETE /api/v1/reviews/:id(.:format)        api/v1/reviews#destroy
-      api_v1_users GET    /api/v1/users(.:format)               api/v1/users#index
-                   POST   /api/v1/users(.:format)               api/v1/users#create
-      api_v1_user GET    /api/v1/users/:id(.:format)            api/v1/users#show
                   GET    /*path(.:format)                     pages#index
                     
 ```
