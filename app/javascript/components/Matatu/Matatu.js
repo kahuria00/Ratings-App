@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import ReviewForm from './ReviewForm'
 
 
+
 const Wrapper= styled.div`
   margin-left:auto;
   margin-right:auto;
@@ -31,10 +32,8 @@ const Matatu = (props) =>{
 
 
     useEffect(() =>{
-        const slug= props.params.match.slug
+        const slug= props.match.params.slug
         const url=`/api/v1/matatus/${slug}`
-
-
         axios.get(url)
         .then(resp=>{
             setMatatu (resp.data)                        
@@ -72,8 +71,8 @@ const Matatu = (props) =>{
                  <Main>
              
                     <Header
-                    attributes={Matatu.data.attributes}
-                    reviews={Matatu.included}
+                    attributes={matatu.data.attributes}
+                    reviews={matatu.included}
                     />
              
                 </Main>

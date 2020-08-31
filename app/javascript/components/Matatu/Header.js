@@ -25,7 +25,7 @@ font-weight:bold;
 
 const Header = (props) =>{
     const{name,image_url,avg_score}= props.attributes
-    const total=props.review.length
+    const total=props.reviews.length
     return (
         <Wrapper>
             <h1><img src={image_url} alt={name}/> {name}</h1>
