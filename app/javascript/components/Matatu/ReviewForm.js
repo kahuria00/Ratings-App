@@ -1,7 +1,9 @@
-import React from 'react'
+import React,{Fragment} from 'react'
 import styled from 'styled-components'
 
-const Wrapper = styled.div`
+
+
+const Ratingcontainer= styled.div`
   text-align: center;
   border-radius: 4px;
   font-size:20px;
@@ -12,7 +14,7 @@ const Wrapper = styled.div`
   background: #fff;
 `
 
-const Ratingcontainer = styled.div`
+const RatingBox= styled.div`
   background: #fff;
   display: flex;
   width: 100%;
@@ -78,7 +80,7 @@ const SubmitBtn = styled.button`
   }
 `
 
-const ReviewWrapper = styled.div`
+const Wrapper = styled.div`
   background:white;
   padding:20px;
   margin-left: 15px;
@@ -106,15 +108,19 @@ const RatingcontainerTitle = styled.div`
 
 
 
-
-
-
-
 const ReviewForm = (props) => {
+  const ratingOptions=[5,4,3,2,1].map((score, index) =>{
+    return(
+      <Fragment key={index}>
+        <input type='radio' value={score} checked={props.review.score == score} name='rating' onChange={()=>console.log('selected:',score)} id={'rating-${score}'} />
+        <label onClick={props.setRating.bind(this,score)}></label>
+      </Fragment>
+    )
+  })
     return (
         <Wrapper>
             <form onSubmit={props.handleSubmit}>
-                <ReviewHeadline>Have an experience with {props.attributes.name}? share review</ReviewHeadline>
+                <ReviewHeadline>Have an experience with {props.attributes.name}? share your review</ReviewHeadline>
                 <Field>
                     <input onChange={props.handleChange} value={props.review.title} type='text' name='title' placeholder='Review Title' />
                 </Field>
@@ -123,8 +129,10 @@ const ReviewForm = (props) => {
                 </Field>
                 <Field>
                     <Ratingcontainer>
-                        <RatingcontainerTitle>{props.attributes.name}</RatingcontainerTitle>
-                       Star ratings <i className="fas fa-star"></i>
+                        <RatingcontainerTitle>Rate This Matatu </RatingcontainerTitle>
+                        <RatingBox>
+                           {ratingOptions}
+                       </RatingBox>
                    </Ratingcontainer>
                 </Field>
                 <SubmitBtn type='submit'> Submit your review</SubmitBtn>

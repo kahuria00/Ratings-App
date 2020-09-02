@@ -48,20 +48,33 @@ const Matatu = (props) =>{
         e.preventDefault()
 
         setReview(Object.assign({},review,{[e.target.name]:e.target.value}))
-        console.log('reviews',reviews)
+        console.log('reviews',review)
     }
 
     const handleSubmit=(e) =>{
         e.preventDefault()
 
+    const csrfToken=document.querySelector('[name=csrf-token]').content 
+    axios.defaults.headers.common['X-CSRF-TOKEN'] = csrfToken   
+
         
         const matatu_id= matatu.data.id
         axios.post('/api/v1/reviews',{review,matatu_id})
         .then(resp=>{
-            debugger
+           const included=[...matatu.included,resp.data]
+           setMatatu({...matatu,included}) 
+           setReview({title:'', description:'',score: 0})
         })
         .catch(resp=>{})
+   
     }
+    const setRating=(score, e)=>{
+        e.preventDefault()
+        setReview({...review, score})
+
+    }
+
+   
 
     return (
     <Wrapper>
@@ -77,7 +90,7 @@ const Matatu = (props) =>{
              
                 </Main>
             
-                <div className='reviews'></div>
+                <div className='reviews'>{review}</div>
 
             </Column>
         
@@ -85,6 +98,7 @@ const Matatu = (props) =>{
                 <ReviewForm
                 handleChange={handleChange}
                 handleSubmit={handleSubmit}
+                setRating={setRating}
                 attributes={matatu.data.attributes}
                 review={review}
                 />

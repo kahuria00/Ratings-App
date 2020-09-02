@@ -4,7 +4,7 @@ module Api
             protect_from_forgery with: :null_session 
 
             def create
-                review=Matatu.reviews.new(review_params)
+                review=matatu.reviews.new(review_params)
 
                 if review.save
                     render json: ReviewSerializer.new(review).serialized_json
