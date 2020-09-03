@@ -90,7 +90,7 @@ const Matatu = (props) =>{
              
                 </Main>
             
-                <div className='reviews'>[review]</div>
+                <div className='reviews'></div>
 
             </Column>
         
