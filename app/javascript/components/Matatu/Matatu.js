@@ -3,6 +3,7 @@ import axios from 'axios'
 import Header from './Header'
 import styled from 'styled-components'
 import ReviewForm from './ReviewForm'
+import Review from './Review'
 
 
 
@@ -49,7 +50,7 @@ const Matatu = (props) =>{
 
         setReview(Object.assign({},review,{[e.target.name]:e.target.value}))
         console.log('reviews',review)
-    }
+    };
 
     const handleSubmit=(e) =>{
         e.preventDefault()
@@ -61,7 +62,7 @@ const Matatu = (props) =>{
         const matatu_id= matatu.data.id
         axios.post('/api/v1/reviews',{review,matatu_id})
         .then(resp=>{
-           const included=[...matatu.included,resp.data]
+           const included=[...matatu.included,resp.data.data]
            setMatatu({...matatu,included}) 
            setReview({title:'', description:'',score: 0})
         })
@@ -73,8 +74,18 @@ const Matatu = (props) =>{
         setReview({...review, score})
 
     }
-
-   
+    
+    let reviews
+    if(loaded && matatu.included){
+    reviews=matatu.included.map( (item , index) => {
+        return(
+            <Review
+                key={index}
+                attributes={item.attributes}
+            />
+        )
+    })
+}
 
     return (
     <Wrapper>
@@ -90,7 +101,7 @@ const Matatu = (props) =>{
              
                 </Main>
             
-                <div className='reviews'></div>
+                {reviews}
 
             </Column>
         
@@ -109,6 +120,6 @@ const Matatu = (props) =>{
     )
 
     
-}
+};
 
 export default Matatu 
